@@ -1,26 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/***
+ * Project Started on 10-02-2020
+ * 
+ * 
+ */
 
-function App() {
+
+
+
+import React from 'react';
+
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+
+
+import Login from './container/Login';
+
+import Signup from './container/Signup';
+
+import Modal from './comonents/Modal/Modal';
+
+import Navbar from './comonents/Navbar/Navbar';
+
+import Card from './comonents/Card/Card';
+
+import Profile from './container/Profile/Profile';
+
+import Search from './container/Search/Search';
+
+import Home from './container/Home';
+
+import Upload from './container/Upload/Upload';
+
+
+
+
+
+
+function App(props) {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <BrowserRouter>
+
+
+        <Switch>
+
+         
+            
+          <Route path="/search" component={Search} />
+          <Route path="/account" component={Profile} />
+          <Route path="/upload" component={Upload} />
+
+
+          <Route path="/" component={Home} />
+         
+
+
+
+        </Switch>
+      </BrowserRouter>
   );
+
+
+
 }
 
 export default App;
