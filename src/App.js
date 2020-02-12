@@ -52,8 +52,7 @@ function App(props) {
           <Route path="/account" component={Profile} />
           <Route path="/upload" component={Upload} />
 
-
-          <Route path="/" component={Home} />
+          <Route path="/" component={Signup} />
          
 
 

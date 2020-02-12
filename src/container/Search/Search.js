@@ -37,13 +37,17 @@ class Search extends Component {
       <div>
 
         <Navbar to={window.location.pathname} classList={['active']} />
-        
-        <div className="card p-3 shadow">
 
-          <Input list={this.inputList}/>  
-        </div> 
+        <div className="containers"  style={{width : '70%', margin: 'auto'}}>
 
-        <UserCard />
+          <div className="card p-3 mt-3 shadow">
+
+            <Input list={this.inputList}/>  
+          </div> 
+
+          <UserCard />
+
+        </div>
 
 
       </div>

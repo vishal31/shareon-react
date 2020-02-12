@@ -26,11 +26,11 @@ function Form (props) {
 
 
     //Main Row
-    <div className="container-fluid card"> 
+    <div className="container mt-5 pb-5 card shadow"> 
 
-      <h3 className="text-white text-center"> {props.errors} </h3>
-       
-        <div className="row row-margin">
+      <h1 className="text-center mt-5"> Shareon </h1>
+
+       <div className="row">
 
             <div className="col-md-4"> </div>
 
@@ -42,9 +42,7 @@ function Form (props) {
 
                       { btn }
 
-
             <div className="col-md-4"> </div>
-
 
         </div>
 

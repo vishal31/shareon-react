@@ -24,6 +24,8 @@ class Profile extends Component {
                 <div className="row">
 
                     <div className="col-2 ml-2 mt-2">
+
+                    
                         <img src={img} className="img-fluid rounded-circle" />
 
                         <p className="ml-4 mt-2"> Name : vishal </p>

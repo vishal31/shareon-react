@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import '../App.css'
 
 import Form from '../comonents/Form/Form';
+import SubCard from '../comonents/Card/Sub-Card';
+
 
 
 class Login extends Component {
@@ -106,14 +108,6 @@ class Login extends Component {
           handler : this.redirectHandler
       },
 
-      {
-        id: 2,
-        divClass: [''],
-        btnClass: ['mt-4 btn btn-block text-white'],
-        value: 'Signup',
-        handler : this.redirectHandler
-
-    }
   ]
 
 
@@ -128,10 +122,21 @@ class Login extends Component {
       
       return (
 
-        <div>
+        <div className="row">
+
+          <div className="col-md-2"> </div>
+
+          <div className="col"> 
+
+            <Form headerName = "Login" inputList={this.inputList} btnList={this.btnList}  errors={this.state.errorMessage} />
+
+            <SubCard description="Don't have an account?" path="/signup" value="Sign up"/>
+
+          </div>
+
+          <div className="col-md-2"> </div>
 
 
-          <Form headerName = "Login" inputList={this.inputList} btnList={this.btnList}  errors={this.state.errorMessage} />    
         </div>
 
       );
