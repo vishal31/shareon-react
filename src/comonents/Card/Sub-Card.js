@@ -6,13 +6,23 @@ function SubCard(props) {
 
   return (
     
-    <div className="container card shadow mt-5 text-center">
+    // <div className="container card shadow-sm mt-5 text-center">
+
+    //     <p className="pt-2 mt-1"> 
+    //         {props.description} <Link to={props.path}> {props.value} </Link> 
+    //     </p>
+
+    // </div>
+
+
+    <div className="container mt-5 text-center">
 
         <p className="pt-2 mt-1"> 
             {props.description} <Link to={props.path}> {props.value} </Link> 
         </p>
 
     </div>
+    
     
   );
 

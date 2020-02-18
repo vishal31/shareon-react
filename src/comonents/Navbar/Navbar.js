@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import Button from '../Form/Input/Button';
+//import Button from '../Form/Input/Button';
 
 import NavItem from './Navigation-item';
 
@@ -13,21 +13,13 @@ function Navbar(props) {
 
 
 
-
-    const redirectHandler = (value) => {
-
-        console.log('value', value)
-    }
-
-
-
     const NavList = [
 
         {
             id: 1,
-            classList: props.to ==='/' ? props.classList : [''],
+            classList: props.to ==='/home' ? props.classList : [''],
             itemName: 'Home',
-            path: '/'
+            path: '/home'
         },
 
         {
@@ -51,6 +43,13 @@ function Navbar(props) {
             classList: props.to ==='/account' ? props.classList : [''],
             itemName: 'Account',
             path: '/account'
+        },
+
+        {
+            id: 4,
+            classList: props.to ==='/logout' ? props.classList : ['float-right'],
+            itemName: 'Logout',
+            path: '/login'
         }
 
     ];
@@ -69,7 +68,7 @@ function Navbar(props) {
 
   return (
     
-    <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+    <nav className="navbar navbar-expand-sm bg-dark navbar-dark shadow-sm mb-4">
 
         <a className="navbar-brand" href="#"> Shareon </a>
 
@@ -81,7 +80,7 @@ function Navbar(props) {
         <div className={currState.show ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'}>
 
             <NavItem NavList={NavList} />
-            
+
         </div>  
 
     </nav>

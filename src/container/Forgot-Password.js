@@ -3,84 +3,35 @@ import React, {Component} from 'react';
 import '../App.css'
 
 import Form from '../comonents/Form/Form';
-import axios from '../utils/axios';
+import SubCard from '../comonents/Card/Sub-Card';
 
 
 
-class Login extends Component {
+class ForgotPassword extends Component {
 
 
   state = {
     email: '',
-    password: '',
-
     errorMsg: ''
   };
 
 
-
-
-
    changed = (value, type) => {
      
-
       if(type === 'email') {
         this.setState({email: value});
-
-      }else if(type === 'password') {
-
-        this.setState({password: value});
-
       }
 
-  }
+  }//End of changed() method
 
 
 
   redirectHandler = (value) => {
 
       const email    = this.state.email;
-      const password = this.state.password;
 
       if(!email) {
         this.setState({errorMsg: 'Email Field is required'})
-      }
-
-      if(!password) {
-        this.setState({errorMsg: 'Password Field is required'})
-      }
-
-      if(!email && !password) {
-        this.setState({errorMsg: 'All field is required'})
-      }
-
-      if(email && password) {
-        this.setState({errorMsg: ''});
-
-        axios.post('login', {
-
-          email    : email,
-          password : password
-        })
-        .then(res => {
-
-          const token = res.data.token;
-          const userID = res.data.userID;
-
-          if(token && userID) {
-
-            localStorage.setItem('token', token);
-            localStorage.setItem('userID', userID);
-
-            this.props.history.push({
-              pathname: '/home'
-            })
-  
-          }
-
-        })
-        .catch(err => console.log(err));
-
       }
 
   };//End of redirectHandler() method
@@ -90,21 +41,12 @@ class Login extends Component {
    inputList = [
 
     {
-      id: 2,
+      id: 1,
       classList :['mt-2 form-control'],
       type: 'email',
       holder: 'Email',
       handler: this.changed
-    },
-
-    {
-      id: 3,
-      classList :['mt-2 form-control'],
-      type: 'password',
-      holder: 'Password',
-      handler: this.changed
-    },
-
+    }
 
 ];
 
@@ -118,15 +60,11 @@ class Login extends Component {
           id: 1,
           divClass: [''],
           btnClass: ['mt-4 btn btn-block text-white'],
-          value: 'Login',
+          value: 'Forgot Password',
           handler : this.redirectHandler
       },
 
-  ]
-
-
-
-
+  ];
 
 
 
@@ -143,7 +81,9 @@ class Login extends Component {
           <div className="col"> 
 
             <Form errorMsg = {this.state.errorMsg } inputList={this.inputList} btnList={this.btnList} />
-            
+
+            <SubCard description="Don't have an account?" path="/signup" value="Sign up"/>
+
           </div>
 
           <div className="col-md-2"> </div>
@@ -158,4 +98,4 @@ class Login extends Component {
   
 }//End of class
 
-export default Login;
+export default ForgotPassword;

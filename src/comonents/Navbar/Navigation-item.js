@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 function NavbarItem(props) {
 
+    console.log(props.NavList);
 
     let NavList;
 

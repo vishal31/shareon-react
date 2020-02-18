@@ -9,7 +9,7 @@ const Button = props => {
     return <button 
                 style={props.inlineStype} 
                 className={props.classList.join(' ')} 
-                onClick={() => props.handler(props.value)}> 
+                onClick={() => props.handler(props.value, props.userID)}> 
                     {props.value} 
             </button>
 } 

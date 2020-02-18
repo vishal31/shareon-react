@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .btn {
   background-color: #142850
 }
@@ -11,6 +15,9 @@
   height: 100vH;
 }
 
+
+
+
 .row-margin {
 
   margin-top: 200px;
@@ -23,9 +30,23 @@
 }
 
 .shadow {
-  box-shadow: 4px 6px 10px grey;
+  /* box-shadow: 1px 3px 50px 5px grey; */
+  box-shadow : 1px 4px 6px #d8d5d5
 }
+
 
 .shadow-sm {
   box-shadow: 2px 2px 4px grey;
 }
+
+
+
+  ::after:ab {
+
+    background-color: red;
+  }
+
+  .float-right {
+    position: absolute;
+    right: 10px;
+  }
