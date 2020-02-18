@@ -9,6 +9,24 @@ import axios from '../utils/axios';
 
 class Login extends Component {
 
+  constructor() {
+
+    super();
+
+    
+    const token = localStorage.getItem('token');
+
+    if(token) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userID');
+
+    }
+
+  }
+
+
+
+
 
   state = {
     email: '',

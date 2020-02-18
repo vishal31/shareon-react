@@ -38,13 +38,8 @@ import OTP from './container/OTP';
 
 function App(props) {
 
+ 
 
-  const token = localStorage.getItem('token');
-
-  console.log('token', token)
-
-
-  
   return (
     
       <BrowserRouter>

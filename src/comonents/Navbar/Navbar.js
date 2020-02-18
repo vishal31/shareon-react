@@ -6,6 +6,16 @@ import NavItem from './Navigation-item';
 
 function Navbar(props) {
 
+    
+  const token = localStorage.getItem('token');
+
+  if(!token) {
+    window.location.pathname = '/login'
+  }
+
+
+
+
 
     const [currState, updateStateFun] = useState({
         show: false,
@@ -46,7 +56,7 @@ function Navbar(props) {
         },
 
         {
-            id: 4,
+            id: 5,
             classList: props.to ==='/logout' ? props.classList : ['float-right'],
             itemName: 'Logout',
             path: '/login'

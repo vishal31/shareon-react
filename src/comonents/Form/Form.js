@@ -39,7 +39,7 @@ function Form (props) {
     
     <div className="container w-75 mt-5 pb-5 card shadow"> 
 
-      <h1 className="text-center mt-4"> Shareon </h1>
+      <h1 className="text-center mt-4 text-success"> Shareon </h1>
 
        {/* Main Row */}
        <div className="row justify-content-center">

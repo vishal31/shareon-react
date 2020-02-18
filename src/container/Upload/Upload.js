@@ -5,7 +5,9 @@ import Button from '../../comonents/Form/Input/Button';
 //import Input  from '../../comonents/Form/Input/Input';
 import axios from '../../utils/axios';
 
-
+const header = {
+    Authorization : `Bearer ${localStorage.getItem('token')}`         
+}
 
 class Upload extends Component {
 
@@ -56,9 +58,11 @@ class Upload extends Component {
             const data = new FormData();
             data.append('featureImg', this.state.selectedFile);
 
-             axios.post('feature-pic', data)
+             axios.post('feature-pic', data, {headers: header})
             .then(res => {
-                console.log(res)
+
+                const msg = res.data.message;
+                alert(msg)
             })
             .catch(err => console.log(err));
 
@@ -69,9 +73,10 @@ class Upload extends Component {
             const data = new FormData();
             data.append('profileImg', this.state.profilePic);
 
-             axios.put('profile-pic', data)
+             axios.put('profile-pic', data, {headers: header})
             .then(res => {
-                console.log(res)
+                
+                alert(res.data.message);
             })
             .catch(err => console.log(err));
 

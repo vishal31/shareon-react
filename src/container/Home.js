@@ -4,6 +4,10 @@ import Navbar from '../comonents/Navbar/Navbar';
 import Gallery from '../comonents/Gallery';
 import axios from '../utils/axios';
 
+const header = {
+  Authorization : `Bearer ${localStorage.getItem('token')}`         
+}
+
 
 class Home extends Component {
 
@@ -17,7 +21,7 @@ class Home extends Component {
 
     componentDidMount() {
       
-      axios.get('home')
+      axios.get('home', {headers: header})
         .then(res => {
 
           this.setState({homePicList: res.data.data});
@@ -37,11 +41,11 @@ class Home extends Component {
 
       axios.post('like', {
           featurePicId : value
-      })
+      }, {headers: header})
       .then(res => {
 
          
-          axios.get('home')
+          axios.get('home', {headers: header})
           .then(res => {
               
               const home_img = res.data.data;
@@ -95,7 +99,8 @@ class Home extends Component {
 
         return (
         
-          <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3" key={homePic.feature_picsId}>
+          <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-3 ml-3" key={homePic.feature_picsId}>
+
               <Gallery 
             
                 imgPath={imgPath}

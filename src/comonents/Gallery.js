@@ -6,6 +6,9 @@ import React from 'react';
 
 const Gallery = props => {
 
+  const blackIcon = "https://img.icons8.com/metro/26/000000/like.png";
+  const redIcon = "https://img.icons8.com/cute-clipart/26/000000/like.png";
+
 
     return (
 
@@ -13,7 +16,7 @@ const Gallery = props => {
 
       <div className="card shadow-sm">
       
-        <img  src={props.imgPath} className="img-fluid" alt={props.alt}/>
+        <img  src={props.imgPath} className="img-fluid" alt={props.alt} style={{height: '300px'}} />
 
         <div className="card-header"> 
 
@@ -36,9 +39,19 @@ const Gallery = props => {
               <div className="col mt-2"> 
               
                 <b> Like Count : </b>   {props.likeCounter} 
-                <b className="text-primary ml-5" onClick={() => props.likeHandler(props.imgID) }> {props.likeOrUnlike} </b>
 
               </div>
+
+                <div className="col"> 
+
+                  <p className="text-primary" onClick={() => props.likeHandler(props.imgID) }> 
+
+                    <img src={props.likeOrUnlike === 'Like' ? blackIcon : redIcon}  />            
+                    
+                  </p>
+              
+                </div>
+            
                 
             </div>
 

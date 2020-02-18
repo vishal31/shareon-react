@@ -188,9 +188,9 @@ class Profile extends Component {
 
                     <div className="col">
                         <img 
-                            src={profile_header ? `http://localhost:8080/${profile_header.profile_Pic}` : img} 
+                            src={profile_header.profile_Pic ? `http://localhost:8080/${profile_header.profile_Pic}` : img} 
                             className="img-fluid rounded-circle ml-2" 
-                            style={{width: '100px'}} 
+                            style={{width: '60px', height:'60px'}} 
                         />
                     </div>
 
