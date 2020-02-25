@@ -7,6 +7,10 @@ import ProfileHeader from './Profile-Header'
 import Card from '../../comonents/Card/Card'
 import axios from '../../utils/axios';
 
+
+let header;
+
+
 class Profile extends Component {
 
 
@@ -20,7 +24,7 @@ class Profile extends Component {
 
     componentDidMount() {
 
-        axios.get('feature-pic')
+        axios.get('feature-pic', {headers : header})
             .then(res => {
                 
                 const feature_img = res.data.data;
@@ -37,7 +41,7 @@ class Profile extends Component {
 
     /*************************************** */
 
-        axios.get('profile')
+        axios.get('profile', {headers : header})
             .then(res => {
                 
                 const profile_header = res.data.data;
@@ -68,13 +72,13 @@ class Profile extends Component {
 
         axios.post('like', {
             featurePicId : value
-        })
+        }, {headers : header})
         .then(res => {
 
             this.setState({ likeList : res.data.data });
            
            
-            axios.get('feature-pic')
+            axios.get('feature-pic', {headers : header})
             .then(res => {
                 
                 const feature_img = res.data.data;
@@ -101,6 +105,11 @@ class Profile extends Component {
 
 
     render() {
+
+            
+    header = {
+        Authorization : `Bearer ${localStorage.getItem('token')}`         
+    }
 
         let feature_img_list;
 

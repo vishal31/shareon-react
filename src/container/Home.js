@@ -4,9 +4,8 @@ import Navbar from '../comonents/Navbar/Navbar';
 import Gallery from '../comonents/Gallery';
 import axios from '../utils/axios';
 
-const header = {
-  Authorization : `Bearer ${localStorage.getItem('token')}`         
-}
+
+let header;
 
 
 class Home extends Component {
@@ -20,6 +19,9 @@ class Home extends Component {
 
 
     componentDidMount() {
+
+console.log('header', header)
+
       
       axios.get('home', {headers: header})
         .then(res => {
@@ -82,6 +84,12 @@ class Home extends Component {
 
 
   render () {
+
+    
+
+    header = {
+      Authorization : `Bearer ${localStorage.getItem('token')}`         
+    }
 
     const homePicList = this.state.homePicList;
 

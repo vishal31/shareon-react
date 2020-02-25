@@ -6,6 +6,11 @@ import UserCard from './UserCard';
 import axios from '../../utils/axios';
 
 
+
+
+
+let header;
+
 class Search extends Component {
 
 
@@ -21,7 +26,7 @@ class Search extends Component {
 
     this.setState({name : value});
 
-    axios.get(`search?user_name=${value}`)
+    axios.get(`search?user_name=${value}`, {headers: header})
       .then(res => {
 
          console.log('user', res.data.data)
@@ -45,10 +50,10 @@ class Search extends Component {
           
           data: {  followerID: userID }
         
-        })
+        }, {headers: header})
         .then(res => {
 
-          axios.get(`search?user_name=${this.state.name}`)
+          axios.get(`search?user_name=${this.state.name}`, {headers: header})
           .then(res => {
 
             this.setState({
@@ -68,10 +73,10 @@ class Search extends Component {
         //For inserting follower
         axios.post('follow', {
           followerID: userID
-        })
+        }, {headers: header})
         .then(res => {
 
-          axios.get(`search?user_name=${this.state.name}`)
+          axios.get(`search?user_name=${this.state.name}`, {headers: header})
           .then(res => {
 
             this.setState({
@@ -107,6 +112,11 @@ class Search extends Component {
 
 
   render () {
+
+        
+    header = {
+      Authorization : `Bearer ${localStorage.getItem('token')}`         
+    }
 
     const users = this.state.users;
     let userList;

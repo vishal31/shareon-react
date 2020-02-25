@@ -5,9 +5,7 @@ import Button from '../../comonents/Form/Input/Button';
 //import Input  from '../../comonents/Form/Input/Input';
 import axios from '../../utils/axios';
 
-const header = {
-    Authorization : `Bearer ${localStorage.getItem('token')}`         
-}
+let header;
 
 class Upload extends Component {
 
@@ -93,6 +91,12 @@ class Upload extends Component {
 
 
     render() {
+
+           
+        header = {
+            Authorization : `Bearer ${localStorage.getItem('token')}`         
+        }
+  
 
         return (
     
